@@ -1,0 +1,11 @@
+{
+  "name": "ttrpg-tools",
+  "version": "1.0.0",
+  "description": "A group of Typescript tools to help bolster the online TTRPG community to make TTRPG games fun, accessible, plug-and-playable, and eminently cool.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jack Ryan",
+  "license": "MIT"
+}
