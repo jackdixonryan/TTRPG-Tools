@@ -23,4 +23,4 @@ describe("The reader", () => {
   test("It throws an error when inventory JSON is inappropriately formatted.", () => {
 
   });
-})
+});
