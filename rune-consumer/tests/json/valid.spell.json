@@ -1,0 +1,10 @@
+{ 
+  "spells": [{
+    "name": "air blast",
+    "id": "1230-234it-234efng",
+    "requires": [{
+      "runeId": "12-042oijfsho12",
+      "quantity": 1
+    }]
+  }]
+}
