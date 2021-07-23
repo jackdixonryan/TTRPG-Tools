@@ -1,17 +1,18 @@
 // get some test JSON
-import reader from "../reader.module";
+import path from "path";
+import reader from "../src/reader.module";
 const paths = {
   runes: {
-    valid: "./json/valid.rune.json",
-    invalid: "./json/invalid.rune.json"
+    valid: path.join(__dirname, "./json/valid.rune.json"),
+    invalid: path.join(__dirname, "./json/invalid.rune.json")
   },
   inventory: {
-    valid: "./json/valid.inventory.json",
-    invalid: "./json/invalid.inventory.json"
+    valid: path.join(__dirname, "./json/valid.inventory.json"),
+    invalid: path.join(__dirname, "./json/invalid.inventory.json")
   },
   spells: {
-    valid: "./json/valid.spell.json",
-    invalid: "./json/invalid.spell.json"
+    valid: path.join(__dirname, "./json/valid.spell.json"),
+    invalid: path.join(__dirname, "./json/invalid.spell.json")
   }
 }
 
@@ -33,8 +34,9 @@ describe("The reader", () => {
 
   test("It throws an error when Runes lack name or unique ID.", () => {
     let filepath = paths.runes.invalid;
-    const call = reader.parse("rune", filepath);
-    expect(call).toThrowError("Improperly formatted runes.");
+    expect(() => {
+      reader.parse('rune', filepath)
+    }).toThrow("Improperly Formatted Runes.");
   });
 
   test("It parses spell JSON appropriately.", () => {
@@ -63,8 +65,9 @@ describe("The reader", () => {
 
   test("It throws an error when spell JSON is missing required fields.", () => {
     let filepath = paths.spells.invalid;
-    const call = reader.parse("spell", filepath);
-    expect(call).toThrowError("One or more spells was improperly formatted.");
+    expect(() => {
+      reader.parse('spell', filepath)
+    }).toThrow("Improperly Formatted Spells.");
   });
 
   test("It parses inventory JSON appropriately.", () => {
@@ -87,7 +90,8 @@ describe("The reader", () => {
 
   test("It throws an error when inventory JSON is inappropriately formatted.", () => {
     let filepath = paths.inventory.invalid;
-    const call = reader.parse("inventory", filepath);
-    expect(call).toThrowError("Inventory not properly formatted.");
+    expect(() => {
+      reader.parse('inventory', filepath);
+    }).toThrow("Improperly Formatted Inventory.");
   });
 });

@@ -1,4 +1,4 @@
-import { Item } from "./types";
+import { Item } from "../types";
 import { v4 } from "uuid";
 
 class Inventory {
@@ -15,7 +15,7 @@ class Inventory {
 
   // gets an item from the inventory.
   get(itemId: string): Item[] | null {
-    const matches: Item[] = this.inventoryContents.filter((item: Item) => item.itemId === itemId);
+    const matches: Item[] = this.inventoryContents.filter((item: Item) => item.id === itemId);
     if (matches.length === 0) {
       return null;
     } else {
@@ -29,7 +29,7 @@ class Inventory {
 
   // takes an item out of inventory.
   remove(itemId: string): Item[] {
-    const inventoryWithoutItem: Item[] = this.inventoryContents.filter((item: Item) => item.itemId !== itemId);
+    const inventoryWithoutItem: Item[] = this.inventoryContents.filter((item: Item) => item.id !== itemId);
     this.inventoryContents = inventoryWithoutItem;
     return inventoryWithoutItem;
   }
@@ -39,8 +39,8 @@ class Inventory {
 const id = v4();
 const inventory = new Inventory();
 inventory.add({
-  itemId: id,
-  itemName: "Fire Rune"
+  id,
+  name: "Fire Rune"
 });
 const item = inventory.get(id);
 inventory.remove(id)

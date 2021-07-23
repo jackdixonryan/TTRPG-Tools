@@ -1,3 +1,6 @@
 { 
-  "runes": []
+  "runes": [{
+    "id": "123456sdf",
+    "name": "fire rune"
+  }]
 }

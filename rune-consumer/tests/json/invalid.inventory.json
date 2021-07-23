@@ -1,3 +1,7 @@
 {
-  "inventory": []
+  "inventory": [{
+    "random": "item",
+    "invalid": "keys",
+    "nothing is": "right"
+  }]
 }
